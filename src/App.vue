@@ -3,15 +3,14 @@
 // Check out https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup
 import {ElConfigProvider} from 'element-plus'
 import { ref } from '@vue/runtime-core';
-import HelloWorld from './components/HelloWorld.vue'
+import Nav from './components/Nav.vue'
 import zhCn from 'element-plus/lib/locale/lang/zh-cn'
 const locale1 = ref<any>(zhCn)
 </script>
 
 <template>
   <el-config-provider :locale="locale1">
-    <img alt="Vue logo" src="./assets/logo.png" />
-    <HelloWorld msg="Hello Vue 3 + TypeScript + Vite" />
+    <Nav></Nav>
     <el-row>
       <el-button>Default</el-button>
       <el-button type="primary">默认</el-button>
