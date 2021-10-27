@@ -12,8 +12,8 @@ Since TypeScript cannot handle type information for `.vue` imports, they are shi
 
 
 ---
-1.  cd vue3_blog
-2.  npm install
-3.  npm run dev
+1. cd vue3_blog
+2. npm install
+3. npm run dev
 
 推荐安装vscode插件volar
