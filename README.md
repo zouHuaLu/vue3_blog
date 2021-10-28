@@ -17,3 +17,10 @@ Since TypeScript cannot handle type information for `.vue` imports, they are shi
 3. npm run dev
 
 推荐安装vscode插件volar
+
+---
+开发记录
+首先一定要确定好开发框架版本
+vue: >3.0
+vue-router: >4.0
+这样才能用最新的组合式api
