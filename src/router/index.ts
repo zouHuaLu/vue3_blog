@@ -20,13 +20,13 @@ const routes = [
                 main: Archive
             }
         },
-        {
-            path: 'aboutme',
-            name: '/aboutme',
-            components:  {
-                main: Aboutme
-            }
-        }
+        // {
+        //     path: 'aboutme',
+        //     name: '/aboutme',
+        //     components:  {
+        //         main: Aboutme
+        //     }
+        // }
     ] },
 ]
 
