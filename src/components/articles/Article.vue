@@ -15,11 +15,5 @@
 
 </script>
 <style lang="scss" module>
-.left{
 
-}
-
-.right{
-    
-}
 </style>
