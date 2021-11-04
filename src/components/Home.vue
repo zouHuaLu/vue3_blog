@@ -67,23 +67,12 @@
 </template>
 <script lang='ts' setup>
 import Article from './articles/Article.vue'
-import axios from 'axios'
-import { ref, onMounted } from 'vue'
+import { ref } from 'vue'
 const activeName = ref<string>('latestBlog')
 
 const handleClick = (tab: string) => {
     console.log(tab)
 }
-
-const getList = () => {
-    axios.get('/column/list').then(res => {
-        console.log(res)
-    })
-}
-
-onMounted(() => {
-    getList()
-})
 </script>
 <style lang='scss' module>
 .mes_wrap {
