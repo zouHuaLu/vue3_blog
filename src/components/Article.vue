@@ -6,19 +6,19 @@
             </div>
             <div :class="$style.right">
                 <div :class="$style.title_wrap">
-                    <div :class="$style.tag">{{item.tag}}</div>
-                    <div :class="$style.title">{{item.des}}</div>
+                    <div :class="$style.tag">{{item.tags}}</div>
+                    <div :class="$style.title">{{item.title}}</div>
                 </div>
                 <div :class="$style.tags_wrap">
                     <div :class="$style.tag">
-                        <span>#</span>js
+                        <span>#</span>{{item.tags}}
                     </div>
                     <div :class="$style.tag">
                         <span>#</span>DOM
                     </div>
                 </div>
                 <div :class="$style.produce_wrap">
-                    <div :class="$style.produce">技能加点啦！</div>
+                    <div :class="$style.produce">{{item.introduce}}</div>
                 </div>
                 <div :class="$style.mes_wrap">
                     <div :class="$style.mes">
@@ -29,12 +29,12 @@
                     <div :class="$style.mes">
                         <span>
                             <img src="@/assets/zuozhe.svg" />
-                        </span>zouhualu
+                        </span>{{item.author}}
                     </div>
                     <div :class="$style.mes">
                         <span>
                             <img src="@/assets/shizhong.svg" />
-                        </span>2021-5-21
+                        </span>{{item.createTime}}
                     </div>
                 </div>
             </div>
@@ -47,10 +47,9 @@ import axios from 'axios'
 
 interface article {
     readonly id:number,
-    tag:string,
+    tags:string,
     author:string,
     createTime:string,
-    des:string,
     imgurl:string,
     introduce:string,
     title:string
@@ -77,16 +76,17 @@ onMounted(() => {
     display: flex;
     flex-direction: row;
     margin-bottom: 10px;
-    justify-content: space-around;
+    justify-content: flex-start;
     &:hover img {
         transform: scale(1.1);
     }
     .left {
-        width: 350px;
+        min-width: 350px;
         height: 170px;
         overflow: hidden;
         border-radius: 5px;
         cursor: pointer;
+        margin-right: 30px;
         img {
             transition: all 0.5s;
             width: 100%;
@@ -97,6 +97,7 @@ onMounted(() => {
         display: flex;
         flex-direction: column;
         justify-content: space-around;
+        max-width: 500px;
         .title_wrap {
             display: flex;
             align-items: center;
@@ -155,9 +156,6 @@ onMounted(() => {
         .mes_wrap {
             color: #aaa;
             display: flex;
-            flex-direction: row;
-            align-items: center;
-            justify-content: space-around;
             .mes {
                 color: #afb0b4;
                 margin-right: 10px;
