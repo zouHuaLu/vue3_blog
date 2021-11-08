@@ -1,4 +1,6 @@
 <template>
+<div :class="$style.home_wrap">
+
     <!-- 这里是轮播图 -->
     <el-container>
         <el-main>
@@ -149,6 +151,7 @@
             </el-row>
         </el-main>
     </el-container>
+</div>
 </template>
 <script lang='ts' setup>
 import Article from './Article.vue'
@@ -160,6 +163,10 @@ const handleClick = (tab: string) => {
 }
 </script>
 <style lang='scss' module>
+.home_wrap{
+    width: 1500px;
+    margin: 0 auto;
+}
 .mes_wrap {
     height: 500px;
     overflow: hidden;

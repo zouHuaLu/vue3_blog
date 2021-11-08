@@ -2,7 +2,7 @@
     <template v-for="(item,index) in articleList" :key="index">
         <div :class="$style.article_item">
             <div :class="$style.left">
-                <img src="@/assets/lol1.jpeg" />
+                <img :src="item.imgUrl" title="文章首图" />
             </div>
             <div :class="$style.right">
                 <div :class="$style.title_wrap">
@@ -24,7 +24,7 @@
                     <div :class="$style.mes">
                         <span>
                             <img src="@/assets/zan.svg" />
-                        </span>6
+                        </span>{{item.zan}}
                     </div>
                     <div :class="$style.mes">
                         <span>
@@ -50,9 +50,10 @@ interface article {
     tags:string,
     author:string,
     createTime:string,
-    imgurl:string,
+    imgUrl:string,
     introduce:string,
-    title:string
+    title:string,
+    zan: number
 }
 
 
