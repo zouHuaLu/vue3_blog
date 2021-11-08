@@ -25,15 +25,7 @@
                         </el-carousel>
                     </el-col>
                     <el-col :span="8" :lg="8" :md="8" :sm="8" :xs="0">
-                        <div>
-                            <audio :src='urlList[playNow]' autoplay="true" controls='true'>
-                            </audio>
-                        </div>
-                        <div>                                
-                            <el-button type="info"  circle  @click="forwardSong">上一首</el-button>
-                            <el-button type="warning" circle @click="stopSong">暂停</el-button>
-                            <el-button type="danger"  circle @click="nextSong">下一首</el-button>
-                        </div>
+                        <MusicPanel></MusicPanel>
                     </el-col>
                 </el-row>
             </el-main>
@@ -155,113 +147,17 @@
 </template>
 <script lang='ts' setup>
 import Article from './Article.vue'
-import { ref, onMounted } from 'vue'
-import md5 from 'js-md5'
-import axios from 'axios'
+import MusicPanel from './MusicPanel.vue'
+import { ref } from 'vue'
+
 const activeName = ref<string>('latestBlog')
-let urlList = ref<any[]>([])
-let playNow = ref(27)
 
-let userName = encodeURIComponent('13771018499')
-let password = md5('huangjie8499')
-let userId: number
-let cookie = ''
-let jayPlayListId: number
-// 获取用户信息
-const getUserInfo = () => {
-    return new Promise((resolve, reject) => {
-        axios.get(`http://127.0.0.1:3000/login/cellphone?phone=${userName}&password=xxx&md5_password=${password}`).then(res => {
-            if (res.data.loginType === 1) {
-                userId = res.data.account.id
-                cookie = res.data.cookie
-                resolve(userId)
-            } else {
-                reject('登陆失败')
-            }
-        })
-    })
-}
-
-// const getCloudMusic=(cookie:string)=>{
-//     axios.get(`http://127.0.0.1:3000/user/cloud?cookie=${cookie}`).then(res => {
-//         console.log(res)
-//     })
-// }
-
-// 获取歌单id
-const getMusicPag = (id: number) => {
-    return new Promise((resolve, reject) => {
-        axios.get(`http://127.0.0.1:3000/user/playlist?uid=${id}`).then(res => {
-            let musicList = res.data.playlist
-            for (const item of musicList) {
-                if (item.name === '周杰伦（1）') {
-                    jayPlayListId = item.id
-                    resolve(jayPlayListId)
-                }
-            }
-        })
-    })
-}
-
-// 根据歌单id获取歌单详情
-const getPagMusic = (id: number) => {
-    return new Promise((resolve, reject) => {
-        axios.get(`http://127.0.0.1:3000/playlist/detail?id=${id}&cookie=${cookie}`).then(res => {
-            let idList = res.data.playlist.trackIds
-            let targetIdList = []
-            for (const item of idList) {
-                targetIdList.push(item.id)
-            }
-            resolve(targetIdList)
-        })
-    })
-}
-
-// 根据歌曲id获取歌曲url
-const getSong = (songIdList: ([number])) => {
-    return new Promise((resolve, reject) => {
-        let targetIdList = songIdList.join()
-        axios.get(`http://127.0.0.1:3000/song/url?id=${targetIdList}&cookie=${cookie}`).then(res => {
-            resolve(res.data)
-        })
-    })
-}
-
-// 获取歌曲url
-const startGetMusic = async () => {
-    let userId: any = await getUserInfo()
-    let playListId: any = await getMusicPag(userId)
-    let data: any = await getPagMusic(playListId)
-    let songUrl:any = await getSong(data)
-    let songUrlList = []
-    for (const item of songUrl.data) {
-        songUrlList.push(item.url)
-    }
-    console.log(songUrlList)
-    urlList.value = songUrlList
-}
-
-const forwardSong = () => {
-    let length = urlList.value.length
-    playNow.value < 0 ? playNow.value = length :playNow.value--
-}
-
-const stopSong = ()=>{
-
-}
-
-const nextSong = () => {
-    let length = urlList.value.length
-    playNow.value > length ? playNow.value = 0 :playNow.value++
-}
 
 const handleClick = (tab: string) => {
     console.log(tab)
 }
 
-onMounted(() => {
-    startGetMusic()
-})
+
 </script>
 <style lang='scss' module>
 .home_wrap {
