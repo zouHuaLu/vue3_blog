@@ -6,35 +6,39 @@
             </div>
             <div :class="$style.right">
                 <div :class="$style.title_wrap">
-                    <div :class="$style.tag">{{item.tags}}</div>
-                    <div :class="$style.title">{{item.title}}</div>
+                    <div :class="$style.tag">{{ item.tags }}</div>
+                    <div :class="$style.title">{{ item.title }}</div>
                 </div>
                 <div :class="$style.tags_wrap">
                     <div :class="$style.tag">
-                        <span>#</span>{{item.tags}}
+                        <span>#</span>
+                        {{ item.tags }}
                     </div>
                     <div :class="$style.tag">
                         <span>#</span>DOM
                     </div>
                 </div>
                 <div :class="$style.produce_wrap">
-                    <div :class="$style.produce">{{item.introduce}}</div>
+                    <div :class="$style.produce">{{ item.introduce }}</div>
                 </div>
                 <div :class="$style.mes_wrap">
                     <div :class="$style.mes">
                         <span>
                             <img src="@/assets/zan.svg" />
-                        </span>{{item.zan}}
+                        </span>
+                        {{ item.zan }}
                     </div>
                     <div :class="$style.mes">
                         <span>
                             <img src="@/assets/zuozhe.svg" />
-                        </span>{{item.author}}
+                        </span>
+                        {{ item.author }}
                     </div>
                     <div :class="$style.mes">
                         <span>
                             <img src="@/assets/shizhong.svg" />
-                        </span>{{item.createTime}}
+                        </span>
+                        {{ item.createTime }}
                     </div>
                 </div>
             </div>
@@ -42,27 +46,26 @@
     </template>
 </template>
 <script lang="ts" setup>
-import {ref, onMounted } from 'vue'
+import { ref, onMounted } from 'vue'
 import axios from 'axios'
 
 interface article {
-    readonly id:number,
-    tags:string,
-    author:string,
-    createTime:string,
-    imgUrl:string,
-    introduce:string,
-    title:string,
+    readonly id: number,
+    tags: string,
+    author: string,
+    createTime: string,
+    imgUrl: string,
+    introduce: string,
+    title: string,
     zan: number
 }
-
 
 let articleList = ref<article[]>([])
 
 const getList = () => {
-    axios.get('/column/list').then(res => {
+    axios.get('http://127.0.0.1:8082/blog/api/column/list').then(res => {
         let data = res.data
-        if(data.code === 1){
+        if (data.code === 1) {
             articleList.value = data.list
         }
     })
