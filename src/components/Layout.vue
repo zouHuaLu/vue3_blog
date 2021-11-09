@@ -26,9 +26,12 @@
                 </el-row>
             </div>
         </el-header>
+        <div :class="$style.main_content">
+            <!-- 这里是轮播图 -->
+            <Carousel></Carousel>
+            <router-view name="main"></router-view>
+        </div>
 
-        <router-view  name="main"></router-view>
-        
         <!-- 这里是底部信息栏 -->
         <el-footer>
             <div :class="$style.footer">
@@ -41,10 +44,14 @@
 </template>
 
 <script setup lang="ts">
-
+import Carousel from './Carousel.vue'
 </script>
 
 <style lang="scss" module>
+.main_content {
+    width: 1500px;
+    margin: 0 auto;
+}
 a {
     text-decoration: none;
     color: black;

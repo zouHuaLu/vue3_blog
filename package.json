@@ -7,6 +7,7 @@
     "serve": "vite preview"
   },
   "dependencies": {
+    "@types/js-md5": "^0.4.3",
     "axios": "^0.24.0",
     "element-plus": "^1.1.0-beta.24",
     "js-md5": "^0.7.3",
