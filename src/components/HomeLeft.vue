@@ -8,18 +8,21 @@
             <el-tab-pane label="最新博客" name="latestBlog">
                 <Article></Article>
             </el-tab-pane>
-            <el-tab-pane label="最新说说" name="latestTalk">最新说说</el-tab-pane>
+            <el-tab-pane label="最新说说" name="latestTalk">
+                <TalkVue></TalkVue>
+            </el-tab-pane>
         </el-tabs>
     </div>
 </template>
 <script lang="ts" setup>
 import Article from './Article.vue'
+import TalkVue from './Talk.vue'
 import { ref } from 'vue'
 
 const activeName = ref<string>('latestBlog')
 
 const handleClick = (tab: string) => {
-    console.log(tab)
+    // console.log(tab)
 }
 </script>
 <style lang="scss" module>

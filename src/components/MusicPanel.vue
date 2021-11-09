@@ -24,7 +24,7 @@ import md5 from 'js-md5'
 import axios from 'axios'
 import { ref, onMounted } from 'vue'
 let urlList = ref<any[]>([])
-let playNow = ref(1)
+let playNow = ref(3)
 let toggleAction = ref<string>('暂停')
 let musicPanel = ref<any>(null)
 

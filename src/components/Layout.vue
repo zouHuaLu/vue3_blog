@@ -11,11 +11,11 @@
                         <div :class="$style.nav_list">
                             <router-link to="/home">主页</router-link>
 
-                            <router-link to="/archive">归档</router-link>
+                            <router-link to="/allArticles">文章</router-link>
 
-                            <router-link to="/">分类</router-link>
+                            <router-link to="/allShuoShuo">说说</router-link>
 
-                            <router-link to="/">标签</router-link>
+                            <router-link to="/amazing">奇怪</router-link>
                         </div>
                     </el-col>
                 </el-row>
