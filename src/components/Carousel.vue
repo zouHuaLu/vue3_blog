@@ -1,33 +1,33 @@
 <template>
     <el-container>
-            <el-main>
-                <el-row :gutter="20" :class="$style.mes_wrap">
-                    <el-col :span="16" :lg="16" :md="16" :sm="16" :xs="24">
-                        <el-carousel :interval="3000" height="500px">
-                            <el-carousel-item :class="$style.carousel_item">
-                                <img src="@/assets/lol1.jpeg" />
-                                <h3 class="medium">哈哈哈</h3>
-                            </el-carousel-item>
-                            <el-carousel-item :class="$style.carousel_item">
-                                <img src="@/assets/lol2.jpeg" />
-                                <h3 class="medium">哈哈哈</h3>
-                            </el-carousel-item>
-                            <el-carousel-item :class="$style.carousel_item">
-                                <img src="@/assets/lol3.jpeg" />
-                                <h3 class="medium">哈哈哈</h3>
-                            </el-carousel-item>
-                            <el-carousel-item :class="$style.carousel_item">
-                                <img src="@/assets/lol4.jpeg" />
-                                <h3 class="medium">哈哈哈</h3>
-                            </el-carousel-item>
-                        </el-carousel>
-                    </el-col>
-                    <el-col :span="8" :lg="8" :md="8" :sm="8" :xs="0">
-                        <MusicPanel></MusicPanel>
-                    </el-col>
-                </el-row>
-            </el-main>
-        </el-container>
+        <el-main>
+            <el-row :gutter="20" :class="$style.mes_wrap">
+                <el-col :span="16">
+                    <el-carousel :interval="3000" height="500px">
+                        <el-carousel-item :class="$style.carousel_item">
+                            <img src="https://tse1-mm.cn.bing.net/th/id/OET.e24560fb06a7417a9cadc11c3679e290?w=272&h=135&c=7&rs=1&o=5&pid=1.9" />
+                            <h3 class="medium">哈哈哈</h3>
+                        </el-carousel-item>
+                        <el-carousel-item :class="$style.carousel_item">
+                            <img src="https://tse1-mm.cn.bing.net/th/id/OET.21119ceae7d24964ac7037895acd5ae3?w=272&h=135&c=7&rs=1&o=5&pid=1.9" />
+                            <h3 class="medium">哈哈哈</h3>
+                        </el-carousel-item>
+                        <el-carousel-item :class="$style.carousel_item">
+                            <img src="https://tse1-mm.cn.bing.net/th/id/OET.712e10c6f98442068faeaa678ad595dc?w=272&h=135&c=7&rs=1&o=5&pid=1.9" />
+                            <h3 class="medium">哈哈哈</h3>
+                        </el-carousel-item>
+                        <el-carousel-item :class="$style.carousel_item">
+                            <img src="https://tse1-mm.cn.bing.net/th/id/OET.a018c2fe54a0471bb030f5f7516cc2c5?w=135&h=135&c=7&rs=1&o=5&pid=1.9" />
+                            <h3 class="medium">哈哈哈</h3>
+                        </el-carousel-item>
+                    </el-carousel>
+                </el-col>
+                <el-col :span="8">
+                    <MusicPanel></MusicPanel>
+                </el-col>
+            </el-row>
+        </el-main>
+    </el-container>
 </template>
 <script lang="ts" setup>
 import MusicPanel from './MusicPanel.vue'

@@ -25,7 +25,7 @@ import axios from 'axios'
 import { ref, onMounted } from 'vue'
 let urlList = ref<any[]>([])
 let playNow = ref(1)
-let toggleAction = ref<string>('播放')
+let toggleAction = ref<string>('暂停')
 let musicPanel = ref<any>(null)
 
 let userName = encodeURIComponent('13771018499')
@@ -47,12 +47,6 @@ const getUserInfo = () => {
         })
     })
 }
-
-// const getCloudMusic=(cookie:string)=>{
-//     axios.get(`http://127.0.0.1:3000/user/cloud?cookie=${cookie}`).then(res => {
-//         console.log(res)
-//     })
-// }
 
 // 获取歌单id
 const getMusicPag = (id: number) => {
@@ -108,7 +102,7 @@ const startGetMusic = async () => {
 
 const forwardSong = () => {
     let length = urlList.value.length
-    playNow.value < 0 ? playNow.value = length : playNow.value--
+    playNow.value <= 0 ? playNow.value = length-1 : playNow.value--
 }
 
 const toggleAct = () => {
@@ -123,7 +117,7 @@ const toggleAct = () => {
 
 const nextSong = () => {
     let length = urlList.value.length
-    playNow.value > length ? playNow.value = 0 : playNow.value++
+    playNow.value >= length ? playNow.value = 0 : playNow.value++
 }
 
 const toMusic = () => {

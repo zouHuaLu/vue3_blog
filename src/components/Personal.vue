@@ -61,7 +61,7 @@
                                 <img src="@/assets/bilibili-on.svg" alt="B站" />
                             </el-avatar>
                         </div>
-                        <div :class="$style.words">编程视频资源很多，偶尔直播打游戏</div>
+                        <div :class="$style.words">偶尔直播打游戏</div>
                     </a>
                 </el-card>
             </el-carousel-item>

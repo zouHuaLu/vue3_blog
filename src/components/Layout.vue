@@ -7,21 +7,16 @@
                     <el-col :span="4">
                         <router-link to="/home" :class="$style.sign">LOVE&SHARE</router-link>
                     </el-col>
-                    <el-col :span="20" :lg="6" :md="10" :sm="10" :xs="12">
-                        <el-row :class="$style.nav_list" justify="space-between" :span="24">
-                            <el-col :span="4" :xs="6">
-                                <router-link to="/home">主页</router-link>
-                            </el-col>
-                            <el-col :span="4" :xs="6">
-                                <router-link to="/archive">归档</router-link>
-                            </el-col>
-                            <el-col :span="4" :xs="6">
-                                <router-link to="/">分类</router-link>
-                            </el-col>
-                            <el-col :span="4" :xs="6">
-                                <router-link to="/">标签</router-link>
-                            </el-col>
-                        </el-row>
+                    <el-col :span="4">
+                        <div :class="$style.nav_list">
+                            <router-link to="/home">主页</router-link>
+
+                            <router-link to="/archive">归档</router-link>
+
+                            <router-link to="/">分类</router-link>
+
+                            <router-link to="/">标签</router-link>
+                        </div>
                     </el-col>
                 </el-row>
             </div>
@@ -72,10 +67,9 @@ a:visited {
     .nav_list {
         display: flex;
         flex-direction: row;
-        justify-content: flex-end;
+        justify-content: space-around;
         a {
             color: #fff;
-            // margin-left: 20px;
         }
     }
 }

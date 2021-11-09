@@ -48,6 +48,7 @@
 <script lang="ts" setup>
 import { ref, onMounted } from 'vue'
 import axios from 'axios'
+import {getArticles} from '../api/api'
 
 interface article {
     readonly id: number,
@@ -63,10 +64,9 @@ interface article {
 let articleList = ref<article[]>([])
 
 const getList = () => {
-    axios.get('http://127.0.0.1:8082/blog/api/column/list').then(res => {
-        let data = res.data
-        if (data.code === 1) {
-            articleList.value = data.list
+    getArticles().then(res=>{
+        if(res.data.code === 1){
+            articleList.value = res.data.list
         }
     })
 }
