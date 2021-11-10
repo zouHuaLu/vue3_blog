@@ -6,6 +6,10 @@ export class Request {
 
     public static init() {
         this.axiosInstance = axios.create({
+            // 线上
+            // baseURL: 'http://139.224.190.142:8082',
+            // 本地
+            baseURL: 'http://127.0.0.1:8082/',
             timeout: 6000
         })
         this.initInterceptors()
@@ -13,6 +17,7 @@ export class Request {
 
     public static initInterceptors() {
         this.axiosInstance.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded'
+        // this.axiosInstance.defaults.headers.post['Access-Control-Allow-Origin'] = '*'
 
         this.axiosInstance.interceptors.request.use((config: AxiosRequestConfig) => {
             const token = localStorage.getItem('ACCESS_TOKEN')
