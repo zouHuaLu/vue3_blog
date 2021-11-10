@@ -1,54 +1,59 @@
 <template>
-    <template v-for="(item,index) in articleList" :key="index">
-        <div :class="$style.article_item">
-            <div :class="$style.left">
-                <img :src="item.imgUrl" title="文章首图" />
+    <template v-if="articleList.length != 0">
+        <template v-for="(item,index) in articleList" :key="index">
+            <div :class="$style.article_item">
+                <div :class="$style.left">
+                    <img :src="item.imgUrl" title="文章首图" />
+                </div>
+                <div :class="$style.right">
+                    <div :class="$style.title_wrap">
+                        <div :class="$style.tag">{{ item.tags }}</div>
+                        <div :class="$style.title">{{ item.title }}</div>
+                    </div>
+                    <div :class="$style.tags_wrap">
+                        <div :class="$style.tag">
+                            <span>#</span>
+                            {{ item.tags }}
+                        </div>
+                        <div :class="$style.tag">
+                            <span>#</span>DOM
+                        </div>
+                    </div>
+                    <div :class="$style.produce_wrap">
+                        <div :class="$style.produce">{{ item.introduce }}</div>
+                    </div>
+                    <div :class="$style.mes_wrap">
+                        <div :class="$style.mes">
+                            <span>
+                                <img src="@/assets/zan.svg" />
+                            </span>
+                            {{ item.zan }}
+                        </div>
+                        <div :class="$style.mes">
+                            <span>
+                                <img src="@/assets/zuozhe.svg" />
+                            </span>
+                            {{ item.author }}
+                        </div>
+                        <div :class="$style.mes">
+                            <span>
+                                <img src="@/assets/shizhong.svg" />
+                            </span>
+                            {{ item.createTime }}
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div :class="$style.right">
-                <div :class="$style.title_wrap">
-                    <div :class="$style.tag">{{ item.tags }}</div>
-                    <div :class="$style.title">{{ item.title }}</div>
-                </div>
-                <div :class="$style.tags_wrap">
-                    <div :class="$style.tag">
-                        <span>#</span>
-                        {{ item.tags }}
-                    </div>
-                    <div :class="$style.tag">
-                        <span>#</span>DOM
-                    </div>
-                </div>
-                <div :class="$style.produce_wrap">
-                    <div :class="$style.produce">{{ item.introduce }}</div>
-                </div>
-                <div :class="$style.mes_wrap">
-                    <div :class="$style.mes">
-                        <span>
-                            <img src="@/assets/zan.svg" />
-                        </span>
-                        {{ item.zan }}
-                    </div>
-                    <div :class="$style.mes">
-                        <span>
-                            <img src="@/assets/zuozhe.svg" />
-                        </span>
-                        {{ item.author }}
-                    </div>
-                    <div :class="$style.mes">
-                        <span>
-                            <img src="@/assets/shizhong.svg" />
-                        </span>
-                        {{ item.createTime }}
-                    </div>
-                </div>
-            </div>
-        </div>
+        </template>
+    </template>
+    <template v-else>
+        <el-empty description="暂无数据"></el-empty>
     </template>
 </template>
 <script lang="ts" setup>
 import { ref, onMounted } from 'vue'
 import axios from 'axios'
-import {getArticles} from '../api/api'
+import { getArticles } from '../api/api'
 
 interface article {
     readonly id: number,
@@ -64,8 +69,8 @@ interface article {
 let articleList = ref<article[]>([])
 
 const getList = () => {
-    getArticles().then(res=>{
-        if(res.data.code === 1){
+    getArticles().then(res => {
+        if (res.data.code === 1) {
             articleList.value = res.data.list
         }
     })

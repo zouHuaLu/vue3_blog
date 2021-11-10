@@ -1,14 +1,19 @@
 <template>
-    <el-timeline>
-        <template v-for="(item, index) in shuoshuoList" :key="index">
-            <el-timeline-item :timestamp="item.timestamp" placement="top">
-                <el-card>
-                    <h4>{{ item.content }}</h4>
-                    <p>发布于 {{ item.timestamp }}</p>
-                </el-card>
-            </el-timeline-item>
-        </template>
-    </el-timeline>
+    <template v-if="shuoshuoList.length != 0">
+        <el-timeline>
+            <template v-for="(item, index) in shuoshuoList" :key="index">
+                <el-timeline-item :timestamp="item.timestamp" placement="top">
+                    <el-card>
+                        <h4>{{ item.content }}</h4>
+                        <p>发布于 {{ item.timestamp }}</p>
+                    </el-card>
+                </el-timeline-item>
+            </template>
+        </el-timeline>
+    </template>
+    <template v-else>
+        <el-empty description="暂无数据"></el-empty>
+    </template>
 </template>
 <script lang="ts" setup>
 import { getShuoShuo } from '../api/api';

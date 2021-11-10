@@ -5,11 +5,13 @@
             <div>
                 <el-row justify="space-between">
                     <el-col :span="4">
-                        <router-link to="/home" :class="$style.sign">LOVE&SHARE</router-link>
+                        <router-link to="/home" :class="$style.sign">
+                        <img src="@/assets/logo.png" alt="走花鹿" title="走花鹿">
+                        </router-link>
                     </el-col>
                     <el-col :span="4">
                         <div :class="$style.nav_list">
-                            <router-link to="/home">主页</router-link>
+                            <router-link to="/home">首页</router-link>
 
                             <router-link to="/allArticles">文章</router-link>
 
@@ -58,7 +60,7 @@ a:visited {
     text-decoration: none;
 }
 .elHeader {
-    background-color: #2f4154;
+    background-color: #e8a49c;
     line-height: 3.75rem;
     .sign {
         color: #fff;
