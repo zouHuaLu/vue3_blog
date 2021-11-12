@@ -60,7 +60,7 @@ a:visited {
     text-decoration: none;
 }
 .elHeader {
-    background-color: #e8a49c;
+    background-color: #58616b;
     line-height: 3.75rem;
     .sign {
         color: #fff;
