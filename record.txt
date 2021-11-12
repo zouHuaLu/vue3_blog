@@ -1,0 +1,17 @@
+1、删除后端服务
+docker rm -f node_server
+docker rm -f node_music
+2、删除后端镜像
+docker image rm node_server
+docker image rm node_music
+3、替换/home/Dockerfile目录下的两个后端服务源文件（blogNodeMusic和blogNodeServer）
+4、进入/home/Dockerfile/blogNodeMusic目录，进行构建node_music镜像（.表示执行当前的Dockerfile文件脚本）
+cd /home/Dockerfile/blogNodeMusic
+docker build -t node_music .
+5、启动node_music容器服务
+docker run -itd --name node_music -p 8082:8082 node_music
+6、进入/home/docker-compose/nodeServer目录，进行构建node_server镜像，并启动服务
+cd /home/docker-compose/nodeServer（命令将执行当前的：docker-compose.yml文件）
+docker-compose up -d
+7、查看全部启动服务
+docker ps
