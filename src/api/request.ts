@@ -42,7 +42,7 @@ export class Request {
                 Request.errorHandle(response)
                 return Promise.reject(response.data)
             } else {
-                ElMessage.warning('网络连接错误，请稍后再试')
+                ElMessage.error('网络连接错误，请稍后再试')
             }
         })
     }

@@ -4,9 +4,11 @@ import Home from '../components/Home.vue'
 import AllArticles from '../components/AllArticles.vue'
 import AllShuoShuo from '../components/AllShuoShuo.vue'
 import Amazing from '@/components/Amazing.vue'
+import BigScreen from '@/components/BigScreen.vue'
 
 const routes = [
-    { path: '/', component: Layout, redirect:{name: 'home'}, children:[
+    { path: '/', component: BigScreen},
+    {path:'/home',component:Layout, children:[
         {
             path: '/home',
             name: 'home',
@@ -35,7 +37,7 @@ const routes = [
                 main: Amazing
             }
         }
-    ] },
+    ] }
 ]
 
 const router = createRouter({
