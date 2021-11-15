@@ -8,7 +8,9 @@
                 <div>后端：NodeJs+Express+MySQL</div>
             </div>
             <div :class="$style.to_home">
-                <router-link to="/home"><el-link type="success">去主页</el-link></router-link>
+                <router-link to="/home">
+                    <el-button type="success" round>去主页</el-button>
+                </router-link>
             </div>
         </div>
     </div>
@@ -24,6 +26,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
     .message_panel {
         .blog_name {
             color: #fff;
@@ -34,8 +37,11 @@
         .blog_msg {
             color: #fff;
             margin-top: 10px;
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
         }
-        .to_home{
+        .to_home {
             margin-top: 50px;
             text-align: center;
         }
