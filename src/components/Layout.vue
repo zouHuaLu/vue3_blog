@@ -11,13 +11,13 @@
                     </el-col>
                     <el-col :span="4">
                         <div :class="$style.nav_list">
-                            <router-link to="/home">首页</router-link>
+                            <router-link to="main">首页</router-link>
 
-                            <router-link to="/allArticles">文章</router-link>
+                            <router-link to="allArticles">文章</router-link>
 
-                            <router-link to="/allShuoShuo">说说</router-link>
+                            <router-link to="allShuoShuo">说说</router-link>
 
-                            <router-link to="/amazing">奇怪</router-link>
+                            <router-link to="amazing">奇怪</router-link>
                         </div>
                     </el-col>
                 </el-row>
@@ -26,7 +26,7 @@
         <div :class="$style.main_content">
             <!-- 这里是轮播图 -->
             <Carousel></Carousel>
-            <router-view name="main"></router-view>
+            <router-view></router-view>
         </div>
 
         <!-- 这里是底部信息栏 -->
