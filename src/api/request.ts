@@ -5,12 +5,19 @@ export class Request {
     public static axiosInstance: AxiosInstance
 
     public static init() {
+        let baseURL:string=''
+        const timeout=6000
+        if(process.env.NODE_ENV == 'production'){
+            // 线上
+            baseURL= 'http://139.224.190.142:8082'
+        }else if(process.env.NODE_ENV == 'development'){
+            // 本地
+            baseURL = 'http://127.0.0.1:8082/'
+        }
         this.axiosInstance = axios.create({
             // 线上
-            // baseURL: 'http://139.224.190.142:8082',
-            // 本地
-            baseURL: 'http://127.0.0.1:8082/',
-            timeout: 6000
+           baseURL,
+           timeout
         })
         this.initInterceptors()
     }

@@ -2,12 +2,13 @@
   "name": "vite-vue3-blog",
   "version": "0.0.0",
   "scripts": {
-    "dev": "vite",
-    "build": "vue-tsc --noEmit --skipLibCheck && vite build",
+    "dev": "set NODE_ENV=development && vite",
+    "build": "vue-tsc --noEmit --skipLibCheck && set NODE_ENV=production && vite build",
     "serve": "vite preview"
   },
   "dependencies": {
     "@types/js-md5": "^0.4.3",
+    "@types/node": "^16.11.7",
     "axios": "^0.24.0",
     "element-plus": "^1.1.0-beta.24",
     "js-md5": "^0.7.3",

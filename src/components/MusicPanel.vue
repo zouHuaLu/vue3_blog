@@ -33,10 +33,21 @@ let password = md5('huangjie8499')
 let userId: number
 let cookie = ''
 let jayPlayListId: number
+
+
+let baseURL: string = ''
+const timeout = 6000
+if (process.env.NODE_ENV == 'production') {
+    // 线上
+    baseURL = 'http://139.224.190.142:3000'
+} else if (process.env.NODE_ENV == 'development') {
+    // 本地
+    baseURL = 'http://127.0.0.1:3000'
+}
 // 获取用户信息
 const getUserInfo = () => {
     return new Promise((resolve, reject) => {
-        axios.get(`http://127.0.0.1:3000/login/cellphone?phone=${userName}&password=xxx&md5_password=${password}`).then(res => {
+        axios.get(`${baseURL}/login/cellphone?phone=${userName}&password=xxx&md5_password=${password}`).then(res => {
             if (res.data.loginType === 1) {
                 userId = res.data.account.id
                 cookie = res.data.cookie
@@ -51,7 +62,7 @@ const getUserInfo = () => {
 // 获取歌单id
 const getMusicPag = (id: number) => {
     return new Promise((resolve, reject) => {
-        axios.get(`http://127.0.0.1:3000/user/playlist?uid=${id}`).then(res => {
+        axios.get(`${baseURL}/user/playlist?uid=${id}`).then(res => {
             let musicList = res.data.playlist
             for (const item of musicList) {
                 if (item.name === '周杰伦（1）') {
@@ -66,7 +77,7 @@ const getMusicPag = (id: number) => {
 // 根据歌单id获取歌单详情
 const getPagMusic = (id: number) => {
     return new Promise((resolve, reject) => {
-        axios.get(`http://127.0.0.1:3000/playlist/detail?id=${id}&cookie=${cookie}`).then(res => {
+        axios.get(`${baseURL}/playlist/detail?id=${id}&cookie=${cookie}`).then(res => {
             let idList = res.data.playlist.trackIds
             let targetIdList = []
             for (const item of idList) {
@@ -81,7 +92,7 @@ const getPagMusic = (id: number) => {
 const getSong = (songIdList: ([number])) => {
     return new Promise((resolve, reject) => {
         let targetIdList = songIdList.join()
-        axios.get(`http://127.0.0.1:3000/song/url?id=${targetIdList}&cookie=${cookie}`).then(res => {
+        axios.get(`${baseURL}/song/url?id=${targetIdList}&cookie=${cookie}`).then(res => {
             resolve(res.data)
         })
     })
@@ -102,7 +113,7 @@ const startGetMusic = async () => {
 
 const forwardSong = () => {
     let length = urlList.value.length
-    playNow.value <= 0 ? playNow.value = length-1 : playNow.value--
+    playNow.value <= 0 ? playNow.value = length - 1 : playNow.value--
 }
 
 const toggleAct = () => {

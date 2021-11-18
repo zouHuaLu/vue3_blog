@@ -90,6 +90,11 @@
   "resolved" "https://registry.nlark.com/@types/js-md5/download/@types/js-md5-0.4.3.tgz?cache=0&sync_timestamp=1629708102475&other_urls=https%3A%2F%2Fregistry.nlark.com%2F%40types%2Fjs-md5%2Fdownload%2F%40types%2Fjs-md5-0.4.3.tgz"
   "version" "0.4.3"
 
+"@types/node@^16.11.7":
+  "integrity" "sha512-QB5D2sqfSjCmTuWcBWyJ+/44bcjO7VbjSbOE0ucoVbAsSNQc4Lt6QkgkVXkTDwkL4z/beecZNDvVX15D4P8Jbw=="
+  "resolved" "https://registry.npmmirror.com/@types/node/download/@types/node-16.11.7.tgz?cache=0&sync_timestamp=1636407250305&other_urls=https%3A%2F%2Fregistry.npmmirror.com%2F%40types%2Fnode%2Fdownload%2F%40types%2Fnode-16.11.7.tgz"
+  "version" "16.11.7"
+
 "@types/throttle-debounce@^2.1.0":
   "integrity" "sha1-HD32JL/Eti+ZLTASuExW1B6rN3Y="
   "resolved" "https://registry.nlark.com/@types/throttle-debounce/download/@types/throttle-debounce-2.1.0.tgz"
