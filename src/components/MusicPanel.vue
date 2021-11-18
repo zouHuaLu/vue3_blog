@@ -7,7 +7,7 @@
         </template>
         <div :class="$style.music_wrap">
             <div>
-                <audio ref="musicPanel" :src="urlList[playNow]" autoplay controls="true"></audio>
+                <audio ref="musicPanel" :src="urlList[playNow]" @ended="nextSong" autoplay controls="true"></audio>
             </div>
             <div :class="$style.words">音乐来自我的网易云歌单《周杰伦(1)》</div>
             <el-button round @click="toMusic">去看看</el-button>
@@ -27,7 +27,6 @@ let urlList = ref<any[]>([])
 let playNow = ref(3)
 let toggleAction = ref<string>('暂停')
 let musicPanel = ref<any>(null)
-
 let userName = encodeURIComponent('13771018499')
 let password = md5('huangjie8499')
 let userId: number
@@ -36,7 +35,6 @@ let jayPlayListId: number
 
 
 let baseURL: string = ''
-const timeout = 6000
 if (process.env.NODE_ENV == 'production') {
     // 线上
     baseURL = 'http://139.224.190.142:3000'

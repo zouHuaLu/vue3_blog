@@ -15,7 +15,6 @@ export class Request {
             baseURL = 'http://127.0.0.1:8082/'
         }
         this.axiosInstance = axios.create({
-            // 线上
            baseURL,
            timeout
         })
