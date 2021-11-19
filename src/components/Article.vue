@@ -52,7 +52,6 @@
 </template>
 <script lang="ts" setup>
 import { ref, onMounted } from 'vue'
-import axios from 'axios'
 import { getArticles } from '../api/api'
 
 interface article {

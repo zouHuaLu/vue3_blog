@@ -21,9 +21,10 @@ export class Request {
         this.initInterceptors()
     }
 
+    // 配置axios拦截器
     public static initInterceptors() {
         this.axiosInstance.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded'
-        // this.axiosInstance.defaults.headers.post['Access-Control-Allow-Origin'] = '*'
+        this.axiosInstance.defaults.headers.post['Access-Control-Allow-Origin'] = '*'
 
         this.axiosInstance.interceptors.request.use((config: AxiosRequestConfig) => {
             const token = localStorage.getItem('ACCESS_TOKEN')
