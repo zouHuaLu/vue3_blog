@@ -49,9 +49,11 @@ const router = createRouter({
   history: createWebHistory(),
   routes,
 });
+
+// 路由守卫
 router.beforeEach((to, from, next) => {
   const token = getItem("token");
-  if (!token && to.name !== "login") {
+  if (!token && to.name == "release") {
     next({ name: "login" });
   } else {
     next();

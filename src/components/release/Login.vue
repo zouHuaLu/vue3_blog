@@ -1,13 +1,13 @@
 <template>
     <el-container>
         <el-header height="80px" :class="$style.header">
-            <div :class="$style.title">文章&说说发布页</div>
+            <div :class="$style.title">文章&说说发布系统</div>
         </el-header>
         <el-main :class="$style.main">
             <el-card class="box-card">
                 <template #header>
                     <div :class="$style.card_header">
-                        <span :class="$style.title">登录文章发布页</span>
+                        <span :class="$style.title">登录</span>
                         <el-button class="button" type="text">注册</el-button>
                     </div>
                 </template>
