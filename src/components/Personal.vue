@@ -3,11 +3,16 @@
         <el-carousel indicator-position="outside">
             <el-carousel-item>
                 <div :class="$style.personal_item">
-                    <div :class="$style.avator_pic">
-                        <el-avatar :size="100">
-                            <img src="@/assets/user1.png" alt="头像" />
-                        </el-avatar>
-                    </div>
+                    <el-popover trigger="hover" width="300px">
+                        <img :class="$style.wechat_img" src="../assets/personal_wechat.jpg" />
+                        <template #reference>
+                            <div :class="$style.avator_pic">
+                                <el-avatar :size="100">
+                                    <img src="@/assets/user1.png" alt="头像" />
+                                </el-avatar>
+                            </div>
+                        </template>
+                    </el-popover>
                     <div :class="$style.nick_name">走花鹿</div>
                     <div :class="[$style.hometown, $style.personal_mes]">
                         <img src="@/assets/dizhi.svg" alt="地址" />
@@ -41,6 +46,27 @@
                             </el-avatar>
                         </div>
                         <div :class="$style.words">随便写写</div>
+                    </a>
+                </el-card>
+            </el-carousel-item>
+            <el-carousel-item>
+                <el-card :class="$style.box_card">
+                    <template #header>
+                        <div :class="$style.header">
+                            <span>我的Steam</span>
+                        </div>
+                    </template>
+                    <a
+                        :class="$style.account"
+                        href="https://steamcommunity.com/id/821359439/"
+                        target="_blank"
+                    >
+                        <div :class="$style.avator_pic">
+                            <el-avatar :size="100">
+                                <img src="@/assets/steam.svg" alt="steam" />
+                            </el-avatar>
+                        </div>
+                        <div :class="$style.words">目前游戏数：39个</div>
                     </a>
                 </el-card>
             </el-carousel-item>
@@ -88,41 +114,45 @@
 </template>
 <script lang="ts" setup></script>
 <style lang="scss" module>
-    .personal_wrap {
-        background-color: #fff;
-        border-radius: 10px;
-        box-shadow: -2px 2px 20px 0 rgb(18 141 244 / 8%);
-        text-align: center;
-        .personal_item {
-            height: 100%;
+.personal_wrap {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: -2px 2px 20px 0 rgb(18 141 244 / 8%);
+    text-align: center;
+    .personal_item {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        .personal_mes {
             display: flex;
-            flex-direction: column;
-            justify-content: space-around;
             align-items: center;
-            .personal_mes {
-                display: flex;
-                align-items: center;
-                img {
-                    width: 24px;
-                    height: 24px;
-                    margin-right: 5px;
-                }
-            }
-        }
-        .box_card {
-            height: 100%;
-            .header {
-                span {
-                    font-size: 14px;
-                    font-weight: 500;
-                }
-            }
-            .avator_pic {
-                margin-bottom: 50px;
-            }
-            .words {
-                font-size: 1.5rem;
+            img {
+                width: 24px;
+                height: 24px;
+                margin-right: 5px;
             }
         }
     }
+    .box_card {
+        height: 100%;
+        .header {
+            span {
+                font-size: 14px;
+                font-weight: 500;
+            }
+        }
+        .avator_pic {
+            margin-bottom: 50px;
+        }
+        .words {
+            font-size: 1.5rem;
+        }
+    }
+}
+
+.wechat_img {
+    width: 300px;
+}
 </style>
