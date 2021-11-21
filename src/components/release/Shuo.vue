@@ -106,12 +106,20 @@ const onSubmit = () => {
         ...form,
         timestamp: timeStamp.value
     }
-    releaseShuoShuo(reqData).then(res => {
-        if (res.status === 200) {
-            ElMessage.success(res.data.data)
-            clearForm()
-        }
-    })
+
+    const username = store.getters.userName
+
+    if (username === '测试号') {
+        ElMessage.warning('测试号是没有权限发布的，哈哈哈')
+    } else {
+        releaseShuoShuo(reqData).then(res => {
+            if (res.status === 200) {
+                ElMessage.success(res.data.data)
+                clearForm()
+            }
+        })
+    }
+
 }
 
 // 清空

@@ -53,7 +53,8 @@ const router = createRouter({
 // 路由守卫
 router.beforeEach((to, from, next) => {
   const token = getItem("token");
-  if (!token && to.name == "release") {
+  console.log(token);
+  if (!token && to.path == "/release") {
     next({ name: "login" });
   } else {
     next();

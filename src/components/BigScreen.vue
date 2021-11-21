@@ -8,8 +8,11 @@
                 <div>后端：NodeJs+Express+MySQL</div>
             </div>
             <div :class="$style.to_home">
-                <router-link to="/home">
+                <router-link to="/home" :class="$style.router">
                     <el-button type="success" round>去主页</el-button>
+                </router-link>
+                <router-link to="/release">
+                    <el-button type="success" round>去发布页</el-button>
                 </router-link>
             </div>
         </div>
@@ -44,6 +47,9 @@
         .to_home {
             margin-top: 50px;
             text-align: center;
+            .router {
+                margin-right: 10px;
+            }
         }
     }
 }
