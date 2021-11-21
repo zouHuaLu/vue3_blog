@@ -1,11 +1,11 @@
-export function setItem(token:string){
-    sessionStorage.setItem("token", token);
+export function setItem(key: string, value: string) {
+  sessionStorage.setItem(key, value);
 }
 
-export function getItem(name:string):any{
-    return sessionStorage.getItem(name)
+export function getItem(name: string): any {
+  return sessionStorage.getItem(name);
 }
 
-export function clearSessionStorage(){
-    sessionStorage.clear()
+export function clearSessionStorage() {
+  sessionStorage.clear();
 }

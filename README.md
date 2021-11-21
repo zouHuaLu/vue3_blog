@@ -20,7 +20,8 @@ Since TypeScript cannot handle type information for `.vue` imports, they are shi
 
 ---
 
-开发记录
+## 开发记录
+
 首先一定要确定好开发框架版本
 vue: >3.0
 vue-router: >4.0
@@ -28,6 +29,10 @@ vue-router: >4.0
 
 ---
 
-## 2021/11/20
+### 2021/11/20
 
 使用 vite 时，vuex 一定要是 vuex4 版本，否则会安装报错
+
+### 2021/11/21
+
+今天完成了说说发布页及功能

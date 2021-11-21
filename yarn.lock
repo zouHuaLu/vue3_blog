@@ -399,8 +399,8 @@
   "version" "2.6.18"
 
 "dayjs@^1.10.7":
-  "integrity" "sha1-LPX5Gt0oEWdIRAhmoKHSbzps5Gg="
-  "resolved" "https://registry.nlark.com/dayjs/download/dayjs-1.10.7.tgz?cache=0&sync_timestamp=1631266519235&other_urls=https%3A%2F%2Fregistry.nlark.com%2Fdayjs%2Fdownload%2Fdayjs-1.10.7.tgz"
+  "integrity" "sha512-P6twpd70BcPK34K26uJ1KT3wlhpuOAPoMwJzpsIWUxHZ7wpmbdZL/hQqBDfz7hGurYSa5PhzdhDHtt319hL3ig=="
+  "resolved" "https://registry.npmjs.org/dayjs/-/dayjs-1.10.7.tgz"
   "version" "1.10.7"
 
 "debug@^4.3.2":
@@ -735,6 +735,11 @@
   "version" "0.2.10"
   dependencies:
     "import-meta-resolve" "^1.1.1"
+
+"moment@^2.29.1":
+  "integrity" "sha512-kHmoybcPV8Sqy59DwNDY3Jefr64lK/by/da0ViFcuA4DH0vQg5Q6Ze5VimxkfQNSC+Mls/Kx53s7TjP1RhFEDQ=="
+  "resolved" "https://registry.npmjs.org/moment/-/moment-2.29.1.tgz"
+  "version" "2.29.1"
 
 "ms@2.1.2":
   "integrity" "sha1-0J0fNXtEP0kzgqjrPM0YOHKuYAk="

@@ -13,10 +13,15 @@
                 </template>
                 <el-form :model="form" label-width="120px">
                     <el-form-item label="用户名" required>
-                        <el-input v-model="form.username" v-bind:disabled="form.disabled"></el-input>
+                        <el-input
+                            v-model="form.username"
+                            placeholder="请输入用户名"
+                            v-bind:disabled="form.disabled"
+                        ></el-input>
                     </el-form-item>
                     <el-form-item label="密码" required>
                         <el-input
+                            placeholder="请输入密码"
                             type="password"
                             v-bind:disabled="form.disabled"
                             v-model="form.password"
@@ -42,8 +47,10 @@ import { login } from '../../api/regist'
 import { ElMessage } from 'element-plus'
 import { setItem } from '../../utils/sessionStorage'
 import { useRouter } from 'vue-router'
+import { useStore } from 'vuex'
 
 const router = useRouter()
+const store = useStore()
 
 interface Form {
     username: String
@@ -70,8 +77,12 @@ const onSubmit = async () => {
         ElMessage.error(data.error)
     } else {
         ElMessage.success(data.data)
-        const token = data.msg
-        setItem(token)
+        const token = data.msg.token
+        setItem('token', token)
+        setItem('userName', data.msg.userName)
+        setItem('userId', data.msg.userId)
+        store.dispatch('setUser', data.msg)
+        store.dispatch('setAuthenticated', true)
         router.push({
             path: '/release'
         })
