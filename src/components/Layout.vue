@@ -32,9 +32,9 @@
         <!-- 这里是底部信息栏 -->
         <el-footer>
             <div :class="$style.footer">
-                <a href="https://music.163.com/song?id=516766954&userid=34198090">LOVE</a>
+                <a href="http://music.163.com/song?id=1848204642&userid=34198090" target="_blank">LOVE</a>
                 <img src="@/assets/aixin.svg" />
-                <a href="https://music.163.com/#/song?id=186145&userid=34198090">SHARE</a>
+                <a href="http://music.163.com/song?id=1856319483&userid=34198090" target="_blank">SHARE</a>
             </div>
             <div :class="$style.copy_right_wrap">
                 <div :class="$style.item">本站所有资源均来源于网络，仅供学习参考，如有侵权，非常抱歉，请立即联系作者删除</div>

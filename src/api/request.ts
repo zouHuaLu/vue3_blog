@@ -69,6 +69,7 @@ export class Request {
         }
       },
       (err: any) => {
+        this.endLoading(loading);
         const { response } = err;
         if (response) {
           Request.errorHandle(response);

@@ -1,3 +1,4 @@
+nginx配置文件目录（/usr/local/home）
 1、删除后端服务
 docker rm -f node_server
 docker rm -f node_music
@@ -9,7 +10,7 @@ docker image rm node_music
 cd /home/Dockerfile/blogNodeMusic
 docker build -t node_music .
 5、启动node_music容器服务
-docker run -itd --name node_music -p 8082:8082 node_music
+docker run -itd --name node_music -p 3000:3000 node_music
 6、进入/home/docker-compose/nodeServer目录，进行构建node_server镜像，并启动服务
 cd /home/docker-compose/nodeServer（命令将执行当前的：docker-compose.yml文件）
 docker-compose up -d
