@@ -8,7 +8,7 @@
                 <template #header>
                     <div :class="$style.card_header">
                         <span :class="$style.title">登录</span>
-                        <el-button class="button" type="text">注册</el-button>
+                        <el-button class="button" @click="signIn" type="text">注册</el-button>
                     </div>
                 </template>
                 <el-form :model="form" label-width="120px">
@@ -88,6 +88,10 @@ const onSubmit = async () => {
         })
     }
 
+}
+
+const signIn = ()=>{
+    ElMessage.warning('暂不支持注册')
 }
 
 watchEffect(() => {
