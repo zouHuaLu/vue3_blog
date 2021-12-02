@@ -2,7 +2,7 @@
     <el-container>
         <el-main>
             <el-row :gutter="20" :class="$style.mes_wrap">
-                <el-col :span="16">
+                <el-col :span="24">
                     <el-carousel :interval="3000" height="500px">
                         <el-carousel-item :class="$style.carousel_item">
                             <img src="https://tse1-mm.cn.bing.net/th/id/OET.e24560fb06a7417a9cadc11c3679e290?w=272&h=135&c=7&rs=1&o=5&pid=1.9" />
@@ -22,15 +22,11 @@
                         </el-carousel-item>
                     </el-carousel>
                 </el-col>
-                <el-col :span="8">
-                    <MusicPanel></MusicPanel>
-                </el-col>
             </el-row>
         </el-main>
     </el-container>
 </template>
 <script lang="ts" setup>
-import MusicPanel from './MusicPanel.vue'
 </script>
 <style lang="scss" module>
 .mes_wrap {

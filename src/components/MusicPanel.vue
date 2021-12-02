@@ -1,23 +1,17 @@
 <template>
-    <el-card :class="$style.box_card">
-        <template #header>
-            <div class="card-header">
-                <span>云音乐</span>
-            </div>
-        </template>
+    <div :class="$style.box_card">
         <div :class="$style.music_wrap">
-            <div>
+            <div :class="$style.audio_wrap">
                 <audio ref="musicPanel" :src="urlList[playNow]" @ended="nextSong" autoplay controls="true"></audio>
             </div>
-            <div :class="$style.words">音乐来自我的网易云歌单《周杰伦(1)》</div>
-            <el-button round @click="toMusic">去看看</el-button>
             <div :class="$style.btn_panel">
-                <el-button round @click="forwardSong">上一首</el-button>
-                <el-button round @click="toggleAct">{{ toggleAction }}</el-button>
-                <el-button round @click="nextSong">下一首</el-button>
+                <el-button round type='info' @click="toMusic">去看看</el-button>
+                <el-button round type='info' @click="forwardSong">上一首</el-button>
+                <el-button round type='info' @click="toggleAct">{{ toggleAction }}</el-button>
+                <el-button round type='info' @click="nextSong">下一首</el-button>
             </div>
         </div>
-    </el-card>
+    </div>
 </template>
 <script lang="ts" setup>
 import md5 from 'js-md5'
@@ -138,17 +132,20 @@ onMounted(() => {
 })
 </script>
 <style lang="scss" module>
-.box_card {
-    height: 100%;
-    text-align: center;
-}
 .music_wrap {
+    display: flex;
     .words {
         margin: 50px 0;
     }
-    .btn_panel {
-        position: relative;
-        top: 150px;
-    }
+}
+
+.btn_panel{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.audio_wrap{
+    vertical-align: middle;
 }
 </style>

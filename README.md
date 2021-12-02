@@ -46,3 +46,56 @@ vue-router: >4.0
 3. 用户权限方面逻辑优化
 
 4. 我觉得页面好丑
+
+### 2021/12/01
+
+[手机端与pc端自适应解决方案](https://juejin.cn/post/6919757661030318093)
+
+经查：移动端才会去采用rem布局方案，pc端自适应采用浮动布局等等来实现
+
+为了实现移动端适配，需要如下配置
+
+配置postcss-pxtorem
+
+1. `npm i postcss-pxtorem -D`
+
+2. 与`package.json`同级目录创建`postcss.config.js`文件
+
+    ```js
+    module.exports = {
+        plugins: {
+            autoprefixer: {
+                overrideBrowserslist: [
+                    "Android 4.1",
+                    "iOS 7.1",
+                    "Chrome > 31",
+                    "ff > 31",
+                    "ie >= 8",
+                    "last 10 versions", // 所有主流浏览器最近10版本用
+                ],
+                grid: true,
+            },
+            'postcss-pxtorem': {
+                rootValue: 37.5,
+                propList: ['*'],
+                unitPrecision: 5
+            }
+        }
+    }
+    ```
+
+    这样就实现了px转rem
+
+3. 配置`amfe-flexible`，给页面根目录设置`font-size`
+
+    `lib-flexible`方案已经被弃用
+
+    3.1 `npm i amfe-flexible -D`
+
+    3.2 在main.ts文件中`import 'amfe-flexible/index.js'`
+
+    `amfe-flexible`适用于移动端自适应，所以暂时不用了
+
+4. 再安装autoprefixer
+
+    执行`npm i autoprefixer`

@@ -9,7 +9,10 @@
                             <img src="@/assets/logo.png" alt="走花鹿" title="走花鹿" />
                         </router-link>
                     </el-col>
-                    <el-col :span="4">
+                    <el-col :lg="12" :xs='0' :sm='0'>
+                        <MusicPanel></MusicPanel>
+                    </el-col>
+                    <el-col :span="8">
                         <div :class="$style.nav_list">
                             <router-link to="main">首页</router-link>
 
@@ -46,11 +49,12 @@
 
 <script setup lang="ts">
 import Carousel from './Carousel.vue'
+import MusicPanel from './MusicPanel.vue'
 </script>
 
 <style lang="scss" module>
 .main_content {
-    width: 1500px;
+    width: 90vw;
     margin: 0 auto;
 }
 a {
@@ -64,16 +68,17 @@ a:visited {
     text-decoration: none;
 }
 .elHeader {
+    width: 100%;
     background-color: #58616b;
-    line-height: 3.75rem;
     .sign {
         color: #fff;
-        font-size: 1.25rem;
+        font-size: 16px;
     }
     .nav_list {
         display: flex;
         flex-direction: row;
-        justify-content: space-around;
+        justify-content: space-evenly;
+        line-height: 60px;
         a {
             color: #fff;
         }
