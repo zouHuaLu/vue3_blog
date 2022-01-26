@@ -57,7 +57,7 @@ const getMusicPag = (id: number) => {
         axios.get(`${baseURL}/user/playlist?uid=${id}`).then(res => {
             let musicList = res.data.playlist
             for (const item of musicList) {
-                if (item.name === '周杰伦（1）') {
+                if (item.name === '周杰伦') {
                     jayPlayListId = item.id
                     resolve(jayPlayListId)
                 }

@@ -3,20 +3,17 @@
         <template v-for="(item,index) in articleList" :key="index">
             <div :class="$style.article_item">
                 <div :class="$style.left">
-                    <img :src="item.imgUrl" title="文章首图" />
+                    <img src="https://tse2-mm.cn.bing.net/th/id/OIP-C.osq71g8jqJ5daK-VweFNVwHaEK?w=285&h=180&c=7&r=0&o=5&pid=1.7" title="文章首图" />
                 </div>
                 <div :class="$style.right">
                     <div :class="$style.title_wrap">
-                        <div :class="$style.tag">{{ item.tags }}</div>
+                        <div :class="$style.tag">{{ item.classify }}</div>
                         <div :class="$style.title">{{ item.title }}</div>
                     </div>
                     <div :class="$style.tags_wrap">
                         <div :class="$style.tag">
                             <span>#</span>
-                            {{ item.tags }}
-                        </div>
-                        <div :class="$style.tag">
-                            <span>#</span>DOM
+                            {{ item.tag }}
                         </div>
                     </div>
                     <div :class="$style.produce_wrap">
@@ -39,7 +36,7 @@
                             <span>
                                 <img src="@/assets/shizhong.svg" />
                             </span>
-                            {{ item.createTime }}
+                            {{ item.time }}
                         </div>
                     </div>
                 </div>
@@ -56,9 +53,10 @@ import { getArticles } from '../api/api'
 
 interface article {
     readonly id: number,
-    tags: string,
+    tag: string,
     author: string,
-    createTime: string,
+    classify:string
+    time: string,
     imgUrl: string,
     introduce: string,
     title: string,

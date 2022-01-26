@@ -27,8 +27,8 @@
             </div>
         </el-header>
         <div :class="$style.main_content">
-            <!-- 这里是轮播图 -->
-            <Carousel></Carousel>
+            <!-- 这里是轮播图
+            <Carousel></Carousel> -->
             <router-view></router-view>
         </div>
 

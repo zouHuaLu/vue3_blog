@@ -2,7 +2,7 @@ import { Request } from "./request";
 
 export function getArticles() {
   return Request.axiosInstance({
-    url: "blog/api/column/articlesList",
+    url: "blog/api/publish/getAllArticles",
     method: "GET",
   });
 }
@@ -16,7 +16,7 @@ export function getShuoShuo() {
 
 export function getAllArticles() {
   return Request.axiosInstance({
-    url: "blog/api/column/allArticles",
+    url: "blog/api/publish/getAllArticles",
     method: "GET",
   });
 }
